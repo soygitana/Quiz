@@ -3,6 +3,7 @@ import data from '../data/data';
 import Answers from 'Answers';
 import Popup from 'Popup';
 import Footer from 'Footer';
+import Header from 'Header';
 
 class Main extends React.Component {
     constructor(props) {
@@ -24,7 +25,7 @@ class Main extends React.Component {
     pushData(nr) {
         this.setState({
             question: data[nr].question,
-            answers: [data[nr].answers[0], data[nr].answers[1], data[nr].answers[2], data[nr].answers[3] ],
+            answers: [data[nr].answers[0], data[nr].answers[1], data[nr].answers[2], data[nr].answers[3]],
             correct: data[nr].correct,
             nr: this.state.nr + 1
         });
@@ -38,7 +39,7 @@ class Main extends React.Component {
     nextQuestion() {
         let { nr, total, score } = this.state;
 
-        if(nr === total){
+        if (nr === total) {
             this.setState({
                 displayPopup: 'flex'
             });
@@ -73,12 +74,13 @@ class Main extends React.Component {
     }
 
     render() {
-        let { nr, total, question, answers, correct, showButton, questionAnswered, displayPopup, score} = this.state;
+        let { nr, total, question, answers, correct, showButton, questionAnswered, displayPopup, score } = this.state;
 
         return (
-            <div className="container">
+         <div>
+            <Header />
 
-                <Popup style={{display: displayPopup}} score={score} total={total} startQuiz={this.handleStartQuiz}/>
+                <Popup style={{ display: displayPopup }} score={score} total={total} startQuiz={this.handleStartQuiz} />
 
                 <div className="row">
                     <div className="col-lg-10 col-lg-offset-1">
@@ -86,14 +88,16 @@ class Main extends React.Component {
                             <h4>Question {nr}/{total}</h4>
                             <p>{question}</p>
                         </div>
-                        <Answers answers={answers} correct={correct} showButton={this.handleShowButton} isAnswered={questionAnswered} increaseScore={this.handleIncreaseScore}/>
+                        <Answers answers={answers} correct={correct} showButton={this.handleShowButton} isAnswered={questionAnswered} increaseScore={this.handleIncreaseScore} />
                         <div id="submit">
-                            {showButton ? <button className="fancy-btn" onClick={this.nextQuestion} >{nr===total ? 'Finish quiz' : 'Next question'}</button> : null}
+                            {showButton ? <button className="fancy-btn" onClick={this.nextQuestion} >{nr === total ? 'Finish quiz' : 'Next question'}</button> : null}
                         </div>
                     </div>
                 </div>
+              
                 <Footer />
-            </div>
+        </div>
+          
         );
     }
 };

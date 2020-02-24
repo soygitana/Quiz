@@ -8,5 +8,5 @@ import 'style!css!applicationStyles';
 
 render(
     <Main />, 
-    document.getElementById("react-container")
+    document.getElementById("root")
 );
