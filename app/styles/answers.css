@@ -1,0 +1,91 @@
+#answers ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#answers li {
+    background-color: #fff;
+    border: 2px solid #1cd6b2;
+    min-height: 70px;
+    width: 48%;
+    display: flex;
+    margin-bottom: 30px;
+    transition: color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+}
+
+#answers li span {
+    background-color: #1cd6b2;
+    color: #fff;
+    font-size: 30px;
+    flex: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+#answers li p {
+    color: #292d3e;
+    font-size: 16px;
+    font-weight: 600;
+    flex: calc(100% - 75px);
+    margin: auto 20px;
+    transition: color 0.3s ease;
+}
+
+#answers li:after {
+    display: block;
+}
+
+#answers li:hover {
+    transform: scale(1.03);
+}
+
+#answers li.right {
+    border-color: rgb(44, 121, 209);
+    color: rgb(44, 121, 209);
+}
+
+#answers li.right span {
+    background-color: rgb(44, 121, 209);
+}
+
+#answers li.right p {
+    color: rgb(44, 121, 209);
+}
+
+#answers li.wrong {
+    border-color: #d14444;
+    color: #d14444;
+}
+
+#answers li.wrong span {
+    background-color: #d14444;
+}
+
+#answers li.wrong p {
+    color: #d14444;
+}
+
+#submit {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.next-btn {
+    border: 1px solid #292d3e;
+    border-radius: 0;
+    background-color: white;
+    color: #292d3e;
+    display: inline-block;
+    font-size: 15px;
+    font-weight: 400;
+    padding: 14px 20px;
+    margin: 20px auto;
+    text-transform: uppercase;
+}

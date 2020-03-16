@@ -1,12 +1,9 @@
-import React from 'react';
-import { render } from 'react-dom';
-import { Route, Router, IndexRoute, hashHistory } from 'react-router';
-import Main from 'Main';
+import React from "react";
+import { render } from "react-dom";
+import { Route, Router, IndexRoute, hashHistory } from "react-router";
+import Main from "Main";
 
 // App css
-import 'style!css!applicationStyles';
+import "style!css!applicationStyles";
 
-render(
-    <Main />, 
-    document.getElementById("root")
-);
+render(<Main />, document.getElementById("root"));

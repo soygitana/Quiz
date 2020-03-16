@@ -1,0 +1,56 @@
+.start-btn {
+    border: 2px solid #1cd6b2;
+    border-radius: 0;
+    background-color: white;
+    color: #1cd6b2;
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 14px 50px;
+    margin: 20px auto;
+    text-transform: uppercase;
+    transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.start-btn:hover {
+    background-color: #1cd6b2;
+    color: white;
+}
+
+.popup-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup {
+    text-align: center;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.popup h1 {
+    background-color: #1cd6b2;
+    color: white;
+    border-bottom: 1px solid #ccc;
+    padding: 20px;
+    margin-top: 0;
+}
+
+.popup p {
+    font-size: 18px;
+    letter-spacing: 1px;
+    margin: 20px 10% 0;
+}
+
+.popup .start-btn {
+    margin: 20px auto;
+}

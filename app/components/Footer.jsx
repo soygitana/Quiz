@@ -1,13 +1,14 @@
-import React from 'react'
+import React from "react";
 
-class Footer extends React.Component{
-    render() {
-        return (
-            <footer className="app-footer">
-                <p className="copy">Created with React.js by <a href="https://github.com/soygitana" target="_blank">soygitana</a></p>
-            </footer>
-        )
-    }
-}
+const Footer = () => (
+  <footer className="app-footer">
+    <p className="app-copy">
+      Created with React.js by
+      <a href="https://github.com/soygitana" target="_blank">
+        soygitana
+      </a>
+    </p>
+  </footer>
+);
 
-export default Footer
+export default Footer;
