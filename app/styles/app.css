@@ -2,6 +2,7 @@
 @import "../styles/popup.css";
 @import "../styles/questions.css";
 @import "../styles/answers.css";
+
 @media (max-width: 768px) {
     #question p {
         padding-left: 10px;

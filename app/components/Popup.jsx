@@ -1,35 +1,28 @@
 import React from "react";
 
 class Popup extends React.Component {
-  constructor(props) {
-    super(props);
+  state = {
+    time: "start",
+    title: "Welcome to my Quiz!",
+    text:
+      "This is a quiz application built with ReactJS. <br /><br /> Currently it's loaded with JS questions, but you can easily replace it with differnet questions. <br /><br /> It will dynamically load the question - answer pairs and upload them into the components.",
+    buttonText: "Let's start!",
+  };
 
-    this.state = {
-      time: "start",
-      title: "Welcome to my Quiz!",
-      text:
-        "This is a quiz application built with ReactJS. <br /><br /> Currently it's loaded with JS questions, but you can easily replace it with differnet questions. <br /><br /> It will dynamically load the question - answer pairs and upload them into the components.",
-      buttonText: "Let's start!"
-    };
-
-    this.popupHandle = this.popupHandle.bind(this);
-  }
-
-  popupHandle() {
+  popupHandle = () => {
     let { time } = this.state;
 
     if (time === "start") {
       this.setState({
         time: "end",
         title: "Congratulations!",
-        buttonText: "Restart"
+        buttonText: "Restart",
       });
-
       this.props.startQuiz();
     } else {
-      location.reload(); // restart the application
+      location.reload();
     }
-  }
+  };
 
   componentWillReceiveProps(nextProps) {
     this.setState({
@@ -38,7 +31,7 @@ class Popup extends React.Component {
         this.props.score +
         "</strong> out of <strong>" +
         this.props.total +
-        "</strong> questions right."
+        "</strong> questions right.",
     });
   }
 
@@ -48,9 +41,7 @@ class Popup extends React.Component {
 
   render() {
     let { title, text, buttonText } = this.state;
-
     let { style } = this.props;
-
     return (
       <div className="popup-container" style={style}>
         <div className="container">

@@ -1,26 +1,19 @@
 import React from "react";
-import data from "../data/data";
 import Answers from "Answers";
 import Popup from "Popup";
 import Header from "Header";
 import Footer from "Footer";
+import data from "../data/data";
 
 class Main extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      nr: 0,
-      total: data.length,
-      showButton: false,
-      questionAnswered: false,
-      score: 0,
-      displayPopup: "flex"
-    };
-    this.nextQuestion = this.nextQuestion.bind(this);
-    this.handleShowButton = this.handleShowButton.bind(this);
-    this.handleStartQuiz = this.handleStartQuiz.bind(this);
-    this.handleIncreaseScore = this.handleIncreaseScore.bind(this);
-  }
+  state = {
+    nr: 0,
+    total: data.length,
+    showButton: false,
+    questionAnswered: false,
+    score: 0,
+    displayPopup: "flex",
+  };
 
   pushData(nr) {
     this.setState({
@@ -29,53 +22,52 @@ class Main extends React.Component {
         data[nr].answers[0],
         data[nr].answers[1],
         data[nr].answers[2],
-        data[nr].answers[3]
+        data[nr].answers[3],
       ],
       correct: data[nr].correct,
-      nr: this.state.nr + 1
+      nr: this.state.nr + 1,
     });
   }
 
   componentWillMount() {
-    let { nr } = this.state;
-    this.pushData(nr);
+    this.pushData(this.state.nr);
   }
 
-  nextQuestion() {
-    let { nr, total, score } = this.state;
+  nextQuestion = () => {
+    let { nr, total } = this.state;
 
     if (nr === total) {
       this.setState({
-        displayPopup: "flex"
+        displayPopup: "flex",
       });
     } else {
       this.pushData(nr);
       this.setState({
         showButton: false,
-        questionAnswered: false
+        questionAnswered: false,
       });
     }
-  }
+  };
 
-  handleShowButton() {
+  handleShowButton = () => {
     this.setState({
       showButton: true,
-      questionAnswered: true
+      questionAnswered: true,
     });
-  }
+  };
 
-  handleStartQuiz() {
+  handleStartQuiz = () => {
     this.setState({
       displayPopup: "none",
-      nr: 1
+      nr: 1,
     });
-  }
+  };
 
-  handleIncreaseScore() {
+  handleIncreaseScore = () => {
     this.setState({
-      score: this.state.score + 1
+      score: this.state.score + 1,
     });
-  }
+  };
 
   render() {
     let {
@@ -87,13 +79,12 @@ class Main extends React.Component {
       showButton,
       questionAnswered,
       displayPopup,
-      score
+      score,
     } = this.state;
 
     return (
       <div>
         <Header />
-
         <Popup
           style={{ display: displayPopup }}
           score={score}

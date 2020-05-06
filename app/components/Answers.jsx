@@ -1,17 +1,12 @@
 import React from "react";
 
 class Answers extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isAnswered: false,
-      classNames: ["", "", "", ""]
-    };
+  state = {
+    isAnswered: false,
+    classNames: ["", "", "", ""],
+  };
 
-    this.checkAnswer = this.checkAnswer.bind(this);
-  }
-
-  checkAnswer(e) {
+  checkAnswer = (e) => {
     let { isAnswered } = this.props;
 
     if (!isAnswered) {
@@ -28,16 +23,16 @@ class Answers extends React.Component {
       }
 
       this.setState({
-        classNames: updatedClassNames
+        classNames: updatedClassNames,
       });
 
       this.props.showButton();
     }
-  }
+  };
 
   shouldComponentUpdate() {
     this.setState({
-      classNames: ["", "", "", ""]
+      classNames: ["", "", "", ""],
     });
     return true;
   }
@@ -45,12 +40,6 @@ class Answers extends React.Component {
   render() {
     let { answers } = this.props;
     let { classNames } = this.state;
-
-    let transition = {
-      transitionName: "example",
-      transitionEnterTimeout: 500,
-      transitionLeaveTimeout: 300
-    };
 
     return (
       <div id="answers">
