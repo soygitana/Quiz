@@ -1,8 +1,4 @@
 
-
-
-
-
 # Quiz Application built with react.js and node.js
 
 <br>
